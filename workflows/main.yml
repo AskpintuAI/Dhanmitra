@@ -1,1 +1,22 @@
+name: Build Android AAB
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Final AAB
+        uses: pwa-builder/pwa-action@v1
+        with:
+          # Aapka GitHub Pages URL
+          url: https://askpintuai.github.io/dhanmitra/
+          # Google Play Console wala exact package name
+          androidPackageId: com.dhanmitra.app
+          name: Dhanmitra Consultancy
+          format: 'bundle'
 
